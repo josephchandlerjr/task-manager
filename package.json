@@ -2,10 +2,10 @@
   "name": "task-manager",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node src/app.js",
-    "dev": "env-cmd -f ./config/dev.env nodemon src/app.js",
+    "start": "node src/index.js",
+    "dev": "env-cmd -f ./config/dev.env nodemon src/index.js",
     "test": "env-cmd -f ./config/test.env jest --watch"
   },
   "jest": {
