@@ -9,11 +9,7 @@
     "test": "env-cmd -f ./config/test.env jest --watch"
   },
   "jest": {
-<<<<<<< HEAD
     "testEnvironment": "node"
-=======
-    "testE": "node"
->>>>>>> d32abddf89dcda70cc5c3fc8371b73a020ec1760
   },
   "author": "Joe Chandler",
   "license": "ISC",
