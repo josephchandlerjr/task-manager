@@ -1,26 +1,11 @@
 const request 	= require('supertest')
-const jwt		= require('jsonwebtoken')
-const mongoose	= require('mongoose')
 const app 		= require('../src/app')
 const User 		= require('../src/models/user')
-
-const userOneId = new mongoose.Types.ObjectId() //generate our own token so we know what it is
-
-const userOne = {
-	_id: userOneId,
-	name: 'Lyria',
-	email: 'lyria@rr.com',
-	password: 'Figment123!!',
-	tokens: [{
-		token: jwt.sign({ _id: userOneId }, process.env.JWTSECRET)
-	}]
-}
+const { seedDatase, userOne, userOneId } = require('./fixtures/db')
 
 
-beforeEach( async () => {
-	await User.deleteMany() // delete all
-	await new User(userOne).save() // seed db with one user account
-})
+
+beforeEach(seedDatase)
 
 
 
@@ -43,7 +28,6 @@ test('Should sign up a new user', async () => {
 	 },
 	 token: user.tokens[0].token
 	})
-	console.log(user)
 
 	expect(user.password).not.toBe('BreakTheChains123!!') // should be hash, not original
 })
